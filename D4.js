@@ -150,7 +150,6 @@ console.log("Inserito testo 'ciao ciao' -->", reverseString("ciao ciao"));
 const upperFirst = function (someText) {
   let WordsArray = someText.split(" ");
   let newText = "";
-  console.log(WordsArray);
   for (i = 0; i < WordsArray.length; i++) {
     // let singleWord = WordsArray[i];
     WordsArray[i] = WordsArray[i].at(0).toUpperCase() + WordsArray[i].slice(1);
