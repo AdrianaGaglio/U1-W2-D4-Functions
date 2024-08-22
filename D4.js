@@ -85,17 +85,19 @@ console.log("Il numero inserito non soddisfa nessuna delle condizioni precedenti
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
-// const epify = function (addedText) {
-//   let epicodeWord = "EPICODE";
-//   let position = addedText.search(epicodeWord);
-//   if ((addedText.includes(epicodeWord) || addedText.toLowerCase().includes(epicodeWord)) && (position === 0 || position.toLowerCase() === 0)) {
-//     return addedText;
-//   } else {
-//     return "EPICODE" + addedText;
-//   }
-// };
+const epify = function (addedText) {
+  let providedText = addedText.toLowerCase();
+  let position = addedText.toLowerCase().search("epicode");
+  if (providedText.includes("epicode") && position === 0) {
+    return addedText;
+  } else {
+    return "EPICODE " + addedText;
+  }
+};
 
-// console.log("Il testo non contiene EPICODE", epify("ciao ciao"));
+console.log(epify("EPICODE è l'inizio della stringa"));
+console.log(epify("epicode è l'inizio della stringa"));
+console.log(epify("la stringa non inizia con epicode"));
 
 /* ESERCIZIO 6
  Scrivi una funzione di nome "check3and7" che accetta un numero positivo come parametro. La funzione deve controllare che il parametro sia un multiplo
@@ -124,12 +126,45 @@ console.log("Il numero è multiplo di 3 o di7? (inserito 40)", check3and7(40));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+const reverseString = function (text) {
+  let textArray = text.split("");
+  let reverseArray = textArray.reverse();
+  let newText = "";
+  for (i = 0; i < reverseArray.length; i++) {
+    newText += reverseArray[i];
+  }
+  return newText;
+};
+
+console.log("Inserito testo abc -->", reverseString("abc"));
+console.log("Inserito testo EPICODE -->", reverseString("EPICODE"));
+console.log("Inserito testo 'ciao ciao' -->", reverseString("ciao ciao"));
+
 /* ESERCIZIO 8
  Scrivi una funzione di nome "upperFirst", che riceve come parametro una stringa formata da diverse parole.
  La funzione deve rendere maiuscola la prima lettera di ogni parola contenuta nella stringa.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+const upperFirst = function (someText) {
+  let WordsArray = someText.split(" ");
+  let newText = "";
+  console.log(WordsArray);
+  for (i = 0; i < WordsArray.length; i++) {
+    // let singleWord = WordsArray[i];
+    WordsArray[i] = WordsArray[i].at(0).toUpperCase() + WordsArray[i].slice(1);
+    if (i === WordsArray.length - 1) {
+      newText += WordsArray[i];
+    } else {
+      newText += WordsArray[i] + " ";
+    }
+  }
+  return newText;
+};
+
+console.log("Inserisco il testo 'ciao ciao' -->", upperFirst("ciao ciao"));
+console.log("Inserisco il testo 'il mio cane si chiama charlie' -->", upperFirst("il mio cane si chiama charlie"));
 
 /* ESERCIZIO 9
  Scrivi una funzione di nome "cutString", che riceve come parametro una stringa. La funzione deve creare una nuova stringa senza il primo e l'ultimo carattere
@@ -138,8 +173,32 @@ console.log("Il numero è multiplo di 3 o di7? (inserito 40)", check3and7(40));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+const cutString = function (value) {
+  let counter = value.split("").length;
+  let newString = value.slice(1, counter - 1);
+  return newString;
+};
+
+console.log("Harry Potter -->", cutString("Harry Potter"));
+console.log("Ron Weasley -->", cutString("Ron Weasley"));
+
 /* ESERCIZIO 10
  Scrivi una funzione di nome "giveMeRandom", che accetta come parametro un numero n e ritorna un'array contenente n numeri casuali inclusi tra 0 e 10.
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+const giveMeRandom = function (num) {
+  let counter = 0;
+  let numbers = [];
+  let randomNum = 0;
+  for (i = 0; i < num; i++) {
+    randomNum = Math.floor(Math.random() * 11);
+    numbers.push(randomNum);
+  }
+  return numbers;
+};
+
+console.log("10 numeri casuali", giveMeRandom(10));
+console.log("20 numeri casuali", giveMeRandom(20));
+console.log("30 numeri casuali", giveMeRandom(30));
