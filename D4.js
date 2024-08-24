@@ -87,7 +87,7 @@ console.log("Il numero inserito non soddisfa nessuna delle condizioni precedenti
 
 const epify = function (addedText) {
   let providedText = addedText.toLowerCase();
-  let position = addedText.toLowerCase().search("epicode");
+  let position = addedText.toLowerCase().search("epicode"); // cercare metodo startWith e applicare toUpperCase
   if (providedText.includes("epicode") && position === 0) {
     return addedText;
   } else {
@@ -156,7 +156,7 @@ const upperFirst = function (someText) {
     if (i === WordsArray.length - 1) {
       newText += WordsArray[i];
     } else {
-      newText += WordsArray[i] + " ";
+      newText += WordsArray[i] + " "; // provare a fare con metodo .join() che crea una stringa a partire dal contenuto dell'array
     }
   }
   return newText;
@@ -173,7 +173,7 @@ console.log("Inserisco il testo 'il mio cane si chiama charlie' -->", upperFirst
 /* SCRIVI QUI LA TUA RISPOSTA */
 
 const cutString = function (value) {
-  let counter = value.split("").length;
+  let counter = value.split("").length; // .length è un metodo che funziona anche con la stringa
   let newString = value.slice(1, counter - 1);
   return newString;
 };
