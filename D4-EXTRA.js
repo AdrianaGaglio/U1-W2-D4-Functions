@@ -131,6 +131,8 @@ const loopUntil = function (num1) {
     numbers.push(randomNum);
     if (randomNum > num1) {
       counter++;
+    } else {
+      counter = 0;
     }
     console.log("Dentro il loop", numbers);
   }
@@ -158,22 +160,23 @@ const average = function (p1, p2, p3, p4, p5) {
   const numOfLoop = arguments.length; // calcolo quanti parametri sono valorizzati
   const numbers = [];
   let sum = 0;
+
   for (i = 1; i <= numOfLoop; i++) {
     let index = eval("p" + i); // genero dinamicamente il nome della variabile
     if (typeof index === "number" && index !== NaN) {
       numbers.push(index);
     }
   }
+
   for (i = 0; i < numbers.length; i++) {
     sum += parseInt(numbers[i]);
   }
-  console.log(numbers);
+  console.log("Numeri inseriti:", numbers);
   return sum / numbers.length;
 };
 
-console.log(average(3, "ciao", "ciao", 2));
-console.log(average("ciao", 5, "ciao", 7));
-console.log(average(1, 2, 3, 4, 5));
+console.log("Calcolo media:", average(3, "ciao", "ciao", 2));
+console.log("Calcolo media:", average("ciao", 5, "ciao", 7));
 
 /* EXTRA 8
  Crea una funzione chiamata "longest" che trova la stringa più lunga all'interno di un array di stringhe fornito come parametro.
@@ -181,12 +184,46 @@ console.log(average(1, 2, 3, 4, 5));
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+const longest = function (strings) {
+  if (strings !== undefined) {
+    strings = strings.split(" ");
+    console.log(strings);
+  } else {
+    strings = ["bb", "ccc", "eeeee", "a", "dddd"];
+  }
+  strings.sort(function (a, b) {
+    return a.length - b.length;
+  });
+  console.log("La stringa più lunga è", strings[strings.length - 1]);
+};
+
+longest("pippo pluto e paperino"); // se il parametro è valorizzato con una stringa
+longest(); // se il parametro non è valorizzato assegna un array fisso
+
 /* EXTRA 9
  Crea una funzione per creare un filtro anti-spam per la tua casella email. La funzione riceve un parametro stringa chiamato "emailContent", e torna un valore booleano.
  La funzione deve ritornare true se "emailContent" non contiene le parole "SPAM" o "SCAM".
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+const antiSpam = function (emailContent) {
+  if (typeof emailContent !== "string") {
+    emailContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quam odio, malesuada congue rhoncus ut, finibus vel metus.";
+  }
+  let isSpam = null;
+
+  if (emailContent.toLowerCase().includes("spam") || emailContent.toLowerCase().includes("scam")) {
+    isSpam = true;
+  } else {
+    isSpam = false;
+  }
+  console.log("Contenuto mail", emailContent);
+  return isSpam;
+};
+
+console.log(antiSpam());
+console.log(antiSpam("Lorem ipsum dolor sit amet, SPAM consectetur adipiscing elit."));
 
 /* EXTRA 10
  Scrivi una funzione che riceve una data come parametro, e calcola il numero di giorni passati da quella data.
