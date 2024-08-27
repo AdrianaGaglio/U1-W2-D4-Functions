@@ -231,6 +231,16 @@ console.log(antiSpam("Lorem ipsum dolor sit amet, SPAM consectetur adipiscing el
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
+// const daysGone = (date) => {
+//   date = new Date(date);
+//   let today = Date.now();
+//   console.log(date.valueOf());
+//   console.log(today.valueOf());
+//   let days = parseInt((today - date) / 1000);
+// };
+
+// console.log(daysGone("1990-03-21"));
+
 /* EXTRA 11
  Scrivi una funzione chiamata "matrixGenerator" che riceve come parametri due numeri interi, "x" e "y".
  Il risultato deve essere una matrice di "x" volte "y", e i valori devono rispecchiare gli indici della posizione all'interno della matrice.
@@ -240,3 +250,20 @@ console.log(antiSpam("Lorem ipsum dolor sit amet, SPAM consectetur adipiscing el
 */
 
 /* SCRIVI QUI LA TUA RISPOSTA */
+
+const matrixGenerator = (x, y) => {
+  const matrix = [];
+  let counter = 0;
+  let string = "";
+  for (i = 0; i < x; i++) {
+    string = counter.toString();
+    for (j = 0; j <= y; j++) {
+      matrix.push(string + j);
+    }
+    counter++;
+  }
+  return matrix;
+};
+
+console.log("Matrice con valori inseriti 2 e 5", matrixGenerator(2, 5));
+console.log("Matrice con valori inseriti 2 e 5", matrixGenerator(2, 3));
