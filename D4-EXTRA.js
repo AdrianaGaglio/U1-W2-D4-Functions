@@ -15,7 +15,7 @@ const checkArray = function (num1) {
   const numbers = giveMeRandom(num1); // creo l'array con numero elementi dinamico e contenuto dinamico (randomicamente generati dalla funzione giveMeRandom)
   console.log("Array generato", numbers);
   let sum = 0;
-  for (i = 0; i < numbers.length; i++) {
+  for (let i = 0; i < numbers.length; i++) {
     const number = parseInt(numbers[i]);
     if (number > 5) {
       sum += number;
@@ -42,7 +42,7 @@ console.log("Carrello", shoppingCart);
 
 const shoppingCartTotal = function () {
   let totalCart = 0;
-  for (i = 0; i < shoppingCart.length; i++) {
+  for (let i = 0; i < shoppingCart.length; i++) {
     const itemQuantity = shoppingCart[i].quantity;
     totalCart += itemQuantity * shoppingCart[i].price;
   }
@@ -64,7 +64,7 @@ const addToShoppingCart = function () {
   console.log("Carrello prima di aggiungere un nuovo elemento", oldShoppingCart);
   const newItem = { price: 10, name: "t-shirt", id: "#12345", quantity: 2 };
   console.log("Nuovo elemento", newItem);
-  for (i = 0; i < shoppingCart.length; i++) {
+  for (let i = 0; i < shoppingCart.length; i++) {
     const item = shoppingCart[i].name;
     const itemID = shoppingCart[i].id;
     if (item === newItem.name && itemID === newItem.id) {
@@ -85,14 +85,14 @@ console.log("Carrello aggiornato", addToShoppingCart());
 
 const maxShoppingCart = function () {
   const pricesArray = [];
-  for (i = 0; i < shoppingCart.length; i++) {
+  for (let i = 0; i < shoppingCart.length; i++) {
     const price = shoppingCart[i].price;
     pricesArray.push(price);
     pricesArray.sort(function (a, b) {
       return a - b;
     });
   }
-  for (i = 0; i < shoppingCart.length; i++) {
+  for (let i = 0; i < shoppingCart.length; i++) {
     const item = shoppingCart[i];
     if (shoppingCart[i].price === pricesArray[pricesArray.length - 1]) {
       return shoppingCart[i];
@@ -161,14 +161,14 @@ const average = function (p1, p2, p3, p4, p5) {
   const numbers = [];
   let sum = 0;
 
-  for (i = 1; i <= numOfLoop; i++) {
+  for (let i = 1; i <= numOfLoop; i++) {
     let index = eval("p" + i); // genero dinamicamente il nome della variabile
     if (typeof index === "number" && index !== NaN) {
       numbers.push(index);
     }
   }
 
-  for (i = 0; i < numbers.length; i++) {
+  for (let i = 0; i < numbers.length; i++) {
     sum += parseInt(numbers[i]);
   }
   console.log("Numeri inseriti:", numbers);
@@ -231,15 +231,14 @@ console.log(antiSpam("Lorem ipsum dolor sit amet, SPAM consectetur adipiscing el
 
 /* SCRIVI QUI LA TUA RISPOSTA */
 
-// const daysGone = (date) => {
-//   date = new Date(date);
-//   let today = Date.now();
-//   console.log(date.valueOf());
-//   console.log(today.valueOf());
-//   let days = parseInt((today - date) / 1000);
-// };
+const daysGone = (date) => {
+  date = new Date(date);
+  const today = new Date();
+  const dateDiff = today - date;
+  return Math.floor(dateDiff / (1000 * 60 * 60 * 24));
+};
 
-// console.log(daysGone("1990-03-21"));
+console.log(daysGone("1990-03-21"));
 
 /* EXTRA 11
  Scrivi una funzione chiamata "matrixGenerator" che riceve come parametri due numeri interi, "x" e "y".
